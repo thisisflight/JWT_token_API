@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+
+  app:
+    build: .
+    container_name: authapp
+    ports:
+      - "8000:8000"
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/usr/bin/authapp
+    env_file:
+      - jwt_auth/.env
